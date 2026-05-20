@@ -7,15 +7,18 @@
 
     <nav>
         <a href="/">Home</a>
-        <a href="/events">Events</a>
-        <a href="/create-event">Create Event</a>
-        <a href="/my-tickets">My Tickets</a>
-        <a href="/contact">Contact</a>
+        <a href="/about">About</a>
+
     </nav>
 
     <div>
+        {% if not user.is_authenticated %}
         <a href="/login">Login</a>
         <a href="/register">Register</a>
+        {% else %}
+        <a href="">Dashboard</a>
+        <a href="/logout">Logout</a>
+        {% endif %}
     </div>
 
 </header>
