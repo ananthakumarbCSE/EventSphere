@@ -1,6 +1,7 @@
 from django.shortcuts import render,redirect,HttpResponse
 from django.contrib.auth import login,authenticate,logout
 from django.contrib.auth import get_user_model
+from django.contrib.auth.decorators import login_required
 
 # Create your views here.
 
@@ -23,6 +24,7 @@ def register(request):
             role = role
         )
         
+        
         login(request,user)
         
         return redirect("/")
@@ -37,6 +39,7 @@ def login_view(request):
         
         user = authenticate(request,username=username,password=password)
         
+        
         if user is not None:
             login(request,user)
             return redirect("/")
@@ -47,6 +50,10 @@ def login_view(request):
 def logout_view(request):
     logout(request)
     return redirect("/")
+
+@login_required
+def dashboard(request):
+    return render(request,"dashboard/profile.html")
 
     
 

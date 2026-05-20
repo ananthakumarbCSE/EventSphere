@@ -1,0 +1,5 @@
+error page
+userprofile
+basic dashboard pages
+events models
+CRUD operations in events
