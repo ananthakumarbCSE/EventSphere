@@ -13,5 +13,5 @@ urlpatterns = [
     path("events/<int:event_id>/",event_page,name="event_page"),
     path("create-event/",create_event,name="create_event"),
     path("my-events/",my_events,name="my_events"),
-
+    
 ]
